@@ -14,8 +14,8 @@ const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(function (req, res, next) {
-  const corWhiteList = ['http://localhost:3000', "https://imdbapiproject.herokuapp.com"]
-  if (corWhiteList.indexOf(req.headers.origin) !== -1){
+  const corsWhiteList = ['http://localhost:3000', "https://imdbapiproject.herokuapp.com"]
+  if (corsWhiteList.indexOf(req.headers.origin) !== -1){
  
   // Website you wish to allow to connect
   res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
