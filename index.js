@@ -14,7 +14,9 @@ const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(function (req, res, next) {
-
+  const corWhiteList = ['http://localhost:3000', "https://imdbapiproject.herokuapp.com"]
+  if (corWhiteList.indexOf(req.headers.origin) !== -1){
+ 
   // Website you wish to allow to connect
   res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
 
@@ -27,7 +29,9 @@ app.use(function (req, res, next) {
   // Set to true if you need the website to include cookies in the requests sent
   // to the API (e.g. in case you use sessions)
   //res.setHeader('Access-Control-Allow-Credentials', true);
-
+    
+  }
+  
   // Pass to next layer of middleware
   next();
 });
