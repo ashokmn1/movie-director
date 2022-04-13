@@ -15,13 +15,16 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(function (req, res, next) {
   const corsWhiteList = ['http://localhost:3000', "https://imdbapiproject.herokuapp.com"]
+
   if (corsWhiteList.indexOf(req.headers.origin) !== -1) {
 
     // Website you wish to allow to connect
     res.setHeader('Access-Control-Allow-Origin', req.headers.origin);
 
+
     // Request methods you wish to allow
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+
 
     // Request headers you wish to allow
     res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
